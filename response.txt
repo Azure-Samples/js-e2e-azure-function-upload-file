@@ -1,0 +1,22 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying ::1:7071...
+*   Trying 127.0.0.1:7071...
+* Connected to localhost (127.0.0.1) port 7071 (#0)  
+> POST /api/upload?filename=README.md&username=jsmith HTTP/1.1
+> Host: localhost:7071
+> User-Agent: curl/7.77.0
+> Accept: */*
+> Content-Length: 964
+> Content-Type: multipart/form-data; boundary=------------------------549ebfc06c8f40ab
+>
+* We are completely uploaded and fine
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Mon, 27 Sep 2021 16:53:56 GMT
+< Content-Type: text/plain; charset=utf-8
+< Server: Kestrel
+< Transfer-Encoding: chunked
+<
+{
+  "string": "jsmith/README.md"
+}* Connection #0 to host localhost left intact
