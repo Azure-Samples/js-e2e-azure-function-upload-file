@@ -91,7 +91,7 @@ out
 bin
 obj
 appsettings.json
-local.settings.json
+*.settings.json
 
 # Azurite Storage emulator
 azureStorage
