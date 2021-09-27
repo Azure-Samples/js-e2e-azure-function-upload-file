@@ -3,15 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start-azurite": "azurite --silent --location azureStorage --debug azureStorage/debug.log",
     "build": "tsc",
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "azurite": "^3.14.2",
+    "http-status-enum": "^1.0.2",
+    "parse-multipart": "^1.0.4"
+  },
   "devDependencies": {
     "@azure/functions": "^1.2.3",
+    "@types/parse-multipart": "^1.0.0",
     "typescript": "^4.0.0"
   }
 }
