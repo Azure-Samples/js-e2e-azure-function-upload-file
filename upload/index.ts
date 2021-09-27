@@ -7,7 +7,7 @@ Task: accept file, as multipart form request, send file (100MB max on Consumptio
 
 Run the curl command in the same directory as the file:
 
-curl -X POST  -F 'filename=@test-file.txt' 'http://localhost:7071/api/upload?filename=test-file.txt&username=jsmith --verbose'
+curl -X POST  -F 'filename=@test-file.txt' 'http://localhost:7071/api/upload?filename=test-file.txt&username=jsmith' --verbose
 
 This curl command uses both the querystring and the multi-part form to pass relevant data to and through
 this Azure Function. The querystring property value for `username` becomes the directory name inside the container. 
