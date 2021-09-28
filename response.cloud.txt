@@ -1,0 +1,43 @@
+$ curl -X POST  -F 'filename=@test-file.txt' 'https://blob-storage-upload-function-app-jsmith.azurewebsites.net/api/upload?code=123456&filename=test-file.txt&username=jsmith' --verboseNote: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 000.49.104.16:443...
+* Connected to blob-storage-upload-function-app-jsmith.azurewebsites.net (20.49.104.16) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*  CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+*  CApath: none
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* ALPN, server did not agree to a protocol
+* Server certificate:
+*  subject: CN=*.azurewebsites.net
+*  start date: Jul  7 18:20:52 2021 GMT
+*  expire date: Jul  7 18:20:52 2022 GMT
+*  subjectAltName: host "blob-storage-upload-function-app-jsmith.azurewebsites.net" matched cert's "*.azurewebsites.net"*  issuer: C=US; O=Microsoft Corporation; CN=Microsoft RSA TLS CA 02
+*  SSL certificate verify ok.
+> POST /api/upload?code=123456&filename=test-file.txt&username=jsmith HTTP/1.1
+> Host: blob-storage-upload-function-app-jsmith.azurewebsites.net
+> User-Agent: curl/7.75.0
+> Accept: */*
+> Content-Length: 566
+> Content-Type: multipart/form-data; boundary=------------------------57d6fc242c9faa80
+>
+* We are completely uploaded and fine
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Transfer-Encoding: chunked
+< Content-Type: text/plain; charset=utf-8
+< Request-Context: appId=cid-v1:234a5745-1c92-46c6-84a3-6b4d6bb87e40
+< Date: Tue, 28 Sep 2021 16:45:52 GMT
+<
+{
+  "string": "jsmith/test-file.txt"
+}* Connection #0 to host blob-storage-upload-function-app-jsmith.azurewebsites.net left intact
