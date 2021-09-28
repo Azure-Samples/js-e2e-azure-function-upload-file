@@ -32,6 +32,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         context.res.status = HTTP_CODES.BAD_REQUEST
     }
 
+    console.log(`*** Username:${req.query?.username}, Filename:${req.query?.filename}, Length:${req.body.length}`);
+    
     if(process?.env?.Environment==='Production' && (!process?.env?.AzureWebJobsStorage || process?.env?.AzureWebJobsStorage.length<10)){
         throw Error("Storage isn't configured correctly - get Storage Connection string from Azure portal");
     }
