@@ -13,6 +13,12 @@ This curl command uses both the querystring and the multi-part form to pass rele
 this Azure Function. The querystring property value for `username` becomes the directory name inside the container. 
 The querystring property value for `filename` becomes the file name used in the container. Both these 
 querystring values are used in the `function.json` to construct the container location: `"path": "images/{username}/{filename}",`.
+
+Getting errors?
+If you don't pass the `filename` in the form or send the `content-type` in the header, 
+you should use a different npm package to handle form parsing or alter this
+existing code to have default values before using the `parse-multipart` package.
+
 */
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<any> {
     context.log('upload HTTP trigger function processed a request.');
@@ -22,6 +28,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         context.res.status = HTTP_CODES.BAD_REQUEST
     }
 
+    // `filename` is required property to use multi-part npm package
     if (!req.query?.filename) {
         context.res.body = `filename is not defined`;
         context.res.status = HTTP_CODES.BAD_REQUEST
@@ -32,7 +39,13 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         context.res.status = HTTP_CODES.BAD_REQUEST
     }
 
-    context.log(`*** Username:${req.query?.username}, Filename:${req.query?.filename}, Length:${req.body.length}`);
+    // Content type is required to know how to parse multi-part form
+    if (!req.headers || !req.headers["content-type"]){
+        context.res.body = `Content type is not sent in header 'content-type'`;
+        context.res.status = HTTP_CODES.BAD_REQUEST
+    }    
+
+    context.log(`*** Username:${req.query?.username}, Filename:${req.query?.filename}, Content type:${req.headers["content-type"]}, Length:${req.body.length}`);
     
     if(process?.env?.Environment==='Production' && (!process?.env?.AzureWebJobsStorage || process?.env?.AzureWebJobsStorage.length<10)){
         throw Error("Storage isn't configured correctly - get Storage Connection string from Azure portal");
