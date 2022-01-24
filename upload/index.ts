@@ -1,7 +1,3 @@
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import HTTP_CODES from "http-status-enum";
-import * as multipart from "parse-multipart";
-
 /*
 Task: accept file, as multipart form request, send file (100MB max on Consumption plan) to Azure Storage.
 
@@ -36,6 +32,10 @@ you should use a different npm package to handle form parsing or alter this
 existing code to have default values before using the `parse-multipart` package.
 
 */
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import HTTP_CODES from "http-status-enum";
+import * as multipart from "parse-multipart";
+
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<any> {
     context.log('upload HTTP trigger function processed a request.');
 
