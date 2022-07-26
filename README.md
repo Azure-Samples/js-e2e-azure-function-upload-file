@@ -20,6 +20,10 @@ code . \
 
 Once Visual Studio Code, use **Remote - Containers** extension to open the project in a dev container. 
 
+## Deploy to Azure
+
+* Add the Storage connection string as **AzureWebJobsStorage** app setting
+
 ## Call function
 
 The following files have been provided to upload a document:
