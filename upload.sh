@@ -1,3 +1,4 @@
+#!/bin/bash
 curl -X POST \
 -F 'filename=@test-file.txt' \
 -H 'Content-Type: text/plain' \
