@@ -3,6 +3,9 @@
   "Values": {
     "Environment": "Development",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "node"
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "Azure_Storage_AccountName": "dfberrystorage",
+    "Azure_Storage_AccountKey":"hxrD8I/r9ILvCmTmWzgiI3Y9BV+sj75d13BuFmQ+aj2SBllj9XPhQUg+5I85ei4jUkA7iXbaydxx+AStf42J+A=="
   }
 }

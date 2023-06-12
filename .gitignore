@@ -94,4 +94,4 @@ appsettings.json
 *.settings.json
 
 # Azurite Storage emulator
-azureStorage
+azure/
