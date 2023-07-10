@@ -1,5 +1,7 @@
 # js-e2e-azure-function-upload-file
 
+**Update** - This sample has been archived. For any appropriate replacement sample code, please use [https://github.com/Azure-Samples/azure-typescript-e2e-apps](https://github.com/Azure-Samples/azure-typescript-e2e-apps). 
+
 Learn how to use this sample in the [documentation](https://docs.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload).
 
 ## Clone, install and run locally
